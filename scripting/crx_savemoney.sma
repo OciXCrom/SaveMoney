@@ -2,7 +2,7 @@
 #include <cstrike>
 #include <fvault>
 
-#define PLUGIN_VERSION "2.0"
+#define PLUGIN_VERSION "2.0.1"
 
 enum _:Cvars
 {
@@ -112,7 +112,7 @@ use_vault(const id, const iType, const szInfo[] = "")
 	{
 		case 0:
 		{
-			if(id)
+			if(id && is_user_connected(id))
 			{
 				num_to_str(cs_get_user_money(id), szData, charsmax(szData))
 				fvault_set_data(g_szVault, szInfo, szData)
